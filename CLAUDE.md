@@ -2,11 +2,26 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project status
+## Project overview
 
-This is a new, currently empty project (`task-board`). There is no code, build system, or test suite yet. As the codebase grows, this file should be updated with:
-- Build / lint / test commands (including how to run a single test)
-- High-level architecture notes once there is a real structure to describe
+A React task board app (Vite + React 19). Single-page app with no backend — task state lives only in memory (`useState` in `App.jsx`), so it resets on reload.
+
+## Commands
+
+- `npm install` — install dependencies
+- `npm run dev` — start the Vite dev server
+- `npm run build` — production build (outputs to `dist/`)
+- `npm run preview` — preview the production build locally
+- `npm run lint` — run oxlint
+
+There is no test suite configured yet.
+
+## Architecture
+
+- `src/main.jsx` — entry point, mounts `App` into `#root`.
+- `src/App.jsx` — contains all task board logic and UI: task list state, add/toggle/delete handlers, and rendering. There is currently no separate component split or state management library — everything lives in this single component.
+- `src/App.css` — styles for the task board (form, list, completed-task graying).
+- `src/index.css` — global page styles.
 
 ## Git workflow rules
 
