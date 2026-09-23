@@ -23,6 +23,12 @@ There is no test suite configured yet.
 - `src/App.css` — styles for the task board (form, list, completed-task graying).
 - `src/index.css` — global page styles.
 
+## Deployment
+
+Deployed to GitHub Pages at `https://futurestartstoday2017-sketch.github.io/task-board/`, built by `.github/workflows/deploy.yml` on every push to `main` (via `actions/upload-pages-artifact` + `actions/deploy-pages`). `vite.config.js` sets `base: '/task-board/'` to match the Pages project-site path — keep this in sync if the repo is ever renamed.
+
+The repository's Pages source must be set to "GitHub Actions" (Settings → Pages) for the workflow's deploys to take effect.
+
 ## Git workflow rules
 
 - **This project must always be a Git repository tracked on GitHub.** If a commit is about to be made and no Git repository exists yet, initialize one and set up the GitHub remote first.
