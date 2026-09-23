@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-A React task board app (Vite + React 19). Single-page app with no backend — task state lives only in memory (`useState` in `App.jsx`), so it resets on reload.
+A React task board app (Vite + React 19). Single-page app with no backend — task state lives in `App.jsx` (`useState`) and is persisted to the browser's `localStorage` (key `task-board.tasks`) so it survives page reloads.
 
 ## Commands
 
