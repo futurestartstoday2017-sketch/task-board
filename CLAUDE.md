@@ -23,11 +23,32 @@ There is no test suite configured yet.
 - `src/App.css` — styles for the task board (form, list, completed-task graying).
 - `src/index.css` — global page styles.
 
-## Deployment
+## 技術スタック
 
-Deployed to GitHub Pages at `https://futurestartstoday2017-sketch.github.io/task-board/`, built by `.github/workflows/deploy.yml` on every push to `main` (via `actions/upload-pages-artifact` + `actions/deploy-pages`). `vite.config.js` sets `base: '/task-board/'` to match the Pages project-site path — keep this in sync if the repo is ever renamed.
+- **フレームワーク**: React 19
+- **ビルドツール**: Vite 8(`@vitejs/plugin-react`)
+- **言語**: JavaScript(JSX)。TypeScriptは未導入。
+- **スタイリング**: プレーンCSS(`App.css` / `index.css`)。CSSフレームワークやCSS-in-JSは未使用。
+- **状態管理**: Reactの`useState`のみ。外部の状態管理ライブラリは未導入。
+- **永続化**: ブラウザの`localStorage`(キー: `task-board.tasks`)。バックエンド・DBは無し。
+- **Lint**: oxlint(`npm run lint`)。テストフレームワークは未導入。
+- **パッケージマネージャ**: npm
 
-The repository's Pages source must be set to "GitHub Actions" (Settings → Pages) for the workflow's deploys to take effect.
+## コンポーネントの命名規約
+
+現状コンポーネントは`src/App.jsx`の1つのみだが、今後追加する場合は以下の規約に従う。
+
+- コンポーネントファイルは**PascalCase**(例: `App.jsx`)とし、ファイル名はデフォルトエクスポートするコンポーネント名と一致させる。
+- コンポーネント専用のスタイルは、同名の`.css`ファイルとして同じディレクトリに配置する(例: `App.jsx` ↔ `App.css`)。
+- 複数コンポーネントに分割する場合は`src/components/`配下に置き、1ファイル1コンポーネントとする。
+
+## デプロイ先
+
+https://futurestartstoday2017-sketch.github.io/task-board/
+
+GitHub Pagesにデプロイされており、`.github/workflows/deploy.yml`が`main`へのpushのたびにビルド・公開する(`actions/upload-pages-artifact` + `actions/deploy-pages`)。`vite.config.js`は`base: '/task-board/'`を設定しており、Pagesのプロジェクトサイトのパスと一致させている——リポジトリ名を変更する場合はここも合わせて変更すること。
+
+リポジトリのPages設定(Settings → Pages)で、SourceをGitHub Actionsにしておく必要がある。
 
 ## Git workflow rules
 
